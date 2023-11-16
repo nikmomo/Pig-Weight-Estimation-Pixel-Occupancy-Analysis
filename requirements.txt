@@ -1,2 +1,6 @@
 opencv-python
 numpy
+pandas
+torch
+torchvision
+# timm
