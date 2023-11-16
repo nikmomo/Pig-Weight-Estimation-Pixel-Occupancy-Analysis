@@ -19,3 +19,7 @@ All required dependencies are in 'requirements.txt', run these script to install
 ```
 pip install -r requirements.txt
 ```
+
+# File Distribution
+- data_process.ipynb: Process raw image to pixel map.
+- data_analysis.ipynb: Analysis data use python.
