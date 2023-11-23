@@ -1,0 +1,22 @@
+11/15/2023 
+I'm running some example image to figure out the good pixel size for anaylze, here is what I got:
+Good: 
+56259 - Data\Week2\20211002\20211002_3342\_Depth_3223.png
+47720 - Data/Week1/20210922/20210922_3330_b/_Depth_4618.png
+68278 - Data/Week2/20211002/20211002_3342/_Depth_4780.png
+72566 - Data\Week10\20211118\20211118_3330\_Depth_698.png
+72514 - Data\Week10\20211118\20211118_3330\_Depth_1655.png
+
+Good but w/ pen barrier:
+65121 - Data/Week10/20211118/20211118_3384/_Depth_7908.png
+67722 - Data\Week10\20211118\20211118_3384\_Depth_8140.png
+
+Good but w/ no head:
+50116 - Data/Week2/20211003/20211003_3342a/_Depth_4383.png
+51902 - Data/Week10/20211118/20211118_3384/_Depth_9062.png
+40391 - Data/Week1/20210922/20210922_3330_b/_Depth_4722.png
+
+Not good:
+45570 - Data/Week2/20211003/20211003_3342a/_Depth_6140.png
+51425 - Data\Week2\20211003\20211003_3342a\_Depth_5907.png
+51501 - Data/Week1/20210922/20210922_3342/_Depth_5395.png
