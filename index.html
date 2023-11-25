@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estimating Pig Weight Utilizing Pixel Occupancy Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            color: #007bff;
+        }
+        h2, h3 {
+            color: #0062cc;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estimating Pig Weight Utilizing Pixel Occupancy Analysis</h1>
+        <h2>Authors: Sahilpreet Singh Mann, Zhen “Shin” Zhang</h2>
+        <h3>Date: 11/24/2023</h3>
+        <a href="https://github.com/nikmomo/Pig-Weight-Estimation-Pixel-Occupancy-Analysis">Go to Repository</a><br>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D">TODO Demo HERE</a> <br>
+        <img src="images/teaser.png" width="500" />
+        <h2>Abstract</h2>
+        <p>In the realm of precision agriculture, the accurate estimation of livestock weight is pivotal for optimal farm management. Traditional methods for weighing pigs are often stressful for the animals and can lack precision. This project introduces a novel, non-invasive approach to estimate pig weight utilizing depth images, which enhances accuracy and reduces animal stress. By applying a Gaussian Mixture-based Segmentation Algorithm for background filtering and converting images to grayscale to extract depth information, we develop a machine learning regression model that correlates the mean pixel height from depth images with the actual weights of pigs. The model was trained and validated on a dataset comprising over 5000 depth images from the Virginia Tech Agriculture Department and Dr. Sook Shin Ha's Smartfarm Research Group, achieving an accuracy of 91.83%. This method holds promise for revolutionizing livestock management by offering a rapid, accurate, and humane weight estimation technique. While the approach is robust, certain uncertainties related to environmental variables remain, which future research will aim to address.</p>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>1.	Introduction</h2>
+        <p>Ensuring accurate and stress-free measurement of livestock weight is essential for monitoring health, growth, optimizing feeding strategies, and identifying animals for harvest. The conventional methods for measuring pig weight are either stressful for the animals or not adequately accurate. This project aims to develop a non-invasive, and accurate model to estimate the weight of a pig using depth images, providing a rapid and precise weight estimation method to farmers.</p>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>2.	Approach</h2>
+        <img src="images/goodexample_original.PNG" width="300" /> <img src="images/badexample_original.PNG" width="300" /> <br>
+        <b>good example - original &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bad example - original</b><br><br>
+        <h3>a. Image Preprocessing</h3>
+        <p>
+        <b>•	Background Filtering: </b>Use Gaussian Mixture-based Segmentation Algorithm (GMM) to remove the background and leave a complete image of the object. <br>
+        <img src="images/goodexample_filtered.PNG" width="300" /> <img src="images/badexample_filtered.PNG" width="300" /> <br>
+        <b>good example - applied GMM &emsp;&emsp;&emsp;&emsp;&emsp;bad example - applied GMM</b><br><br>
+        <b>•	Depth Information Translation: </b>Convert the image from RGB to Grayscale for extracting depth information.<br>
+        <img src="images/goodexample_gray.PNG" width="300" /> <img src="images/badexample_gray.PNG" width="300" /> <br>
+        <b>good example - grayscale &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bad example - grayscale</b>
+        </p>
+        <h3>b. Depth-to-Weight Mapping</h3>    
+        <p>
+        <b>•	Pixel Height Extraction: </b>Extract the height information of each pixel in the image and take the average of all pixels as the height value.<br>
+        <img src="images/goodexample_norm.PNG" width="300" /> <img src="images/badexample_norm.PNG" width="300" /> <br>
+        <b>good example - Applied GMM &emsp;&emsp;&emsp;&emsp;&emsp;bad example - Applied GMM</b><br><br>
+        <b>•	Weight and Height Collection: </b>Organize the height and weight data and create a table for training and analysis by a machine learning model.<br>
+        <table class="center" style="background-color:#d1d1d1">
+            <caption>Mean height and weight</caption>
+            <tr>
+              <th>Name</th>
+              <th>Mean Height&emsp;</th>
+              <th>Weight (kg)</th>
+            </tr>
+            <tr>
+              <td>Good example</td>
+              <td>21.164</td>
+              <td>15.5</td>
+            </tr>
+            <tr>
+              <td>Bad example</td>
+              <td>18.723</td>
+              <td>16.5</td>
+            </tr>
+          </table>
+        </p>
+        <h3>c. Machine Learning Model</h3>
+        <p>
+        <b>•	Model Development: </b>Constructed a regression model that correlates extracted feature that is mean of height of pixel from depth images with actual pig weights.<br>
+        <b>•	Training & Validation: </b>Train and validate the model using a dataset of depth images matched with actual weight measurements.<br>
+            </p>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>3. Experiments and Results</h2>
+        <h3>a. Dataset Acquisition</h3>
+        <p>
+            The dataset for this project was provided by the Dr. Gota Morota from Virginia Tech Agriculture Department and Dr. Sook Shin Ha's Smartfarm Research Group, featuring over 5000 depth images of individual piglets. Throughout the usage of the dataset, we adhered to all requirements set by the providers, ensuring that the dataset is not disclosed without consent.<br>
+        <b>•	Depth image collection: </b>Top-view image data are obtained from a depth sensor camera, capturing approximately 3 minutes of image streams each day, with captures occurring every 6 seconds. <br>
+        <b>•	Weight measurement: </b>Each day, the piglet is placed on a scale and its weight is manually recorded, repeating the same procedure every day.
+        </p>
+        <h3>b. Experimental Setup</h3>    
+        <p>
+        <b>•	Data Split:</b> The dataset encompasses the weight information of a single piglet over two weeks, and it was randomly divided into 40% for training and 60% for validation for analysis.<br>
+        <b>•	Model Training:</b> Utilized 40% of data as training subset to develop and refine the machine learning model.<br>
+        <b>•	Model Evaluation:</b> Validated the model using the validation subset that comprises of 60% of total data to get the accuracy.<br>
+        </p>
+        <h3>c. List of Experiments</h3>
+        <p>
+        <b>•	Depth-Weight Relationship Analysis: </b>Experimentally determine the relationship between depth value and actual pig weight.<br>
+        <b>•	Model Performance Evaluation: </b>Test model predictive capabilities under different conditions (e.g., varying pig poses, sizes, lighting).<br>
+            </p>
+        <h3>d. Result</h3>
+        <p>
+            We established a relationship between pixel height, pig weight and developed a model offering estimations with an accuracy of 91.83%.<br>
+            <img src="images/Analysis graph.png" width="500" />
+        </p>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>4.	Limitation</h2>
+        <p>
+            Due to differences in camera angles, the piglet produces varying pixel occupancy when in different positions. These variations affect the accuracy of the data. Sometimes, when the piglet is outside or at the edge of the camera's area, this also impacts the data's accuracy.<br>
+            This project is a Computer Vision project, with a greater focus on image processing rather than model training. Therefore, we only used a simple linear regression model, instead of more complex deep learning models.
+
+        </p>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>5.	Conclusion</h2>
+        <p>
+            This study presents a breakthrough in livestock management with a depth-image-based, computer vision and machine learning framework for pig weight estimation, achieving an accuracy of 91.83%. The method offers a humane alternative to conventional practices, minimizing animal stress. Despite high accuracy, environmental factors can affect image quality and measurement precision. Future iterations of this project should explore deep learning techniques to enhance the model's complexity handling and enable real-time analysis, thus addressing current limitations and broadening the system's robustness and applicability in precision farming.
+
+        </p>
+    </div>
+</body>
+</html>
