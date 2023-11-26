@@ -30,10 +30,10 @@
 <body>
     <div class="container">
         <h1>Estimating Pig Weight Utilizing Pixel Occupancy Analysis</h1>
-        <h2>Authors: Sahilpreet Singh Mann, Zhen “Shin” Zhang</h2>
+        <h2>Authors: Sahilpreet Singh Mann(sahilpreetmann@vt.edu), Zhen “Shin” Zhang(zhenz@vt.edu)</h2>
         <h3>Date: 11/24/2023</h3>
         <a href="https://github.com/nikmomo/Pig-Weight-Estimation-Pixel-Occupancy-Analysis">Go to Repository</a><br>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D">TODO Demo HERE</a> <br>
+        <a href="https://youtu.be/3qALWeOQg38">Project Demo</a> <br>
         <img src="images/teaser.png" width="500" />
         <h2>Abstract</h2>
         <p>In the realm of precision agriculture, the accurate estimation of livestock weight is pivotal for optimal farm management. Traditional methods for weighing pigs are often stressful for the animals and can lack precision. This project introduces a novel, non-invasive approach to estimate pig weight utilizing depth images, which enhances accuracy and reduces animal stress. By applying a Gaussian Mixture-based Segmentation Algorithm for background filtering and converting images to grayscale to extract depth information, we develop a machine learning regression and XG Boost model that correlates the mean pixel height from depth images with the actual weights of pigs. The model was trained and validated on a dataset comprising over 5000 depth images from the Virginia Tech Agriculture Department and Dr. Sook Shin Ha's Smartfarm Research Group, achieving an accuracy of 91.83% using linear regression and accuracy of 92.13% by XG Boost model. This method holds promise for revolutionizing livestock management by offering a rapid, accurate, and humane weight estimation technique. While the approach is robust, certain uncertainties related to environmental variables remain, which future research will aim to address.
@@ -124,7 +124,7 @@
         <h2>4.	Limitation</h2>
         <p>
             Due to differences in camera angles, the piglet produces varying pixel occupancy when in different positions. These variations affect the accuracy of the data. Sometimes, when the piglet is outside or at the edge of the camera's area, this also impacts the data's accuracy.<br>
-            This project is a Computer Vision project, with a greater focus on image processing rather than model training. Therefore, we only used a simple linear regression model, instead of more complex deep learning models.
+            This project is a Computer Vision project, with a greater focus on image processing rather than model training. Therefore, we only used simple linear regression and XG Boost model, instead of more complex deep learning models.
 
         </p>
     </div>

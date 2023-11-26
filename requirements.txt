@@ -3,4 +3,9 @@ numpy
 pandas
 torch
 torchvision
-# timm
+numba
+matplotlib
+
+#model
+xgboost
+sklearn
