@@ -36,7 +36,9 @@
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D">TODO Demo HERE</a> <br>
         <img src="images/teaser.png" width="500" />
         <h2>Abstract</h2>
-        <p>In the realm of precision agriculture, the accurate estimation of livestock weight is pivotal for optimal farm management. Traditional methods for weighing pigs are often stressful for the animals and can lack precision. This project introduces a novel, non-invasive approach to estimate pig weight utilizing depth images, which enhances accuracy and reduces animal stress. By applying a Gaussian Mixture-based Segmentation Algorithm for background filtering and converting images to grayscale to extract depth information, we develop a machine learning regression model that correlates the mean pixel height from depth images with the actual weights of pigs. The model was trained and validated on a dataset comprising over 5000 depth images from the Virginia Tech Agriculture Department and Dr. Sook Shin Ha's Smartfarm Research Group, achieving an accuracy of 91.83%. This method holds promise for revolutionizing livestock management by offering a rapid, accurate, and humane weight estimation technique. While the approach is robust, certain uncertainties related to environmental variables remain, which future research will aim to address.</p>
+        <p>In the realm of precision agriculture, the accurate estimation of livestock weight is pivotal for optimal farm management. Traditional methods for weighing pigs are often stressful for the animals and can lack precision. This project introduces a novel, non-invasive approach to estimate pig weight utilizing depth images, which enhances accuracy and reduces animal stress. By applying a Gaussian Mixture-based Segmentation Algorithm for background filtering and converting images to grayscale to extract depth information, we develop a machine learning regression and XG Boost model that correlates the mean pixel height from depth images with the actual weights of pigs. The model was trained and validated on a dataset comprising over 5000 depth images from the Virginia Tech Agriculture Department and Dr. Sook Shin Ha's Smartfarm Research Group, achieving an accuracy of 91.83% using linear regression and accuracy of 92.13% by XG Boost model. This method holds promise for revolutionizing livestock management by offering a rapid, accurate, and humane weight estimation technique. While the approach is robust, certain uncertainties related to environmental variables remain, which future research will aim to address.
+
+        </p>
     </div>
     <hr>
     <div class="container">
@@ -84,7 +86,7 @@
         </p>
         <h3>c. Machine Learning Model</h3>
         <p>
-        <b>•	Model Development: </b>Constructed a regression model that correlates extracted feature that is mean of height of pixel from depth images with actual pig weights.<br>
+        <b>•	Model Development: </b>Constructed two machine learning models that are linear regression model and XG Boost model that correlate extracted feature that is mean of height of pixel from depth images with actual pig weights.<br>
         <b>•	Training & Validation: </b>Train and validate the model using a dataset of depth images matched with actual weight measurements.<br>
             </p>
     </div>
@@ -110,8 +112,11 @@
             </p>
         <h3>d. Result</h3>
         <p>
-            We established a relationship between pixel height, pig weight and developed a model offering estimations with an accuracy of 91.83%.<br>
-            <img src="images/Analysis graph.png" width="500" />
+            We established a relationship between pixel height, pig weight and developed a Linear Regression model offering estimations with an accuracy of 91.83%, and, a XG Boost model offering accuracy of 92.13%. XG Boost model showed slightly better results than Linear regression models.
+        <br>
+            <img src="images/lr_result.png" width="400" />
+            <img src="images/xg_result.png" width="400" /><br>
+            <b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Linear regression result &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;XG boost result</b><br><br>
         </p>
     </div>
     <hr>
@@ -127,7 +132,7 @@
     <div class="container">
         <h2>5.	Conclusion</h2>
         <p>
-            This study presents a breakthrough in livestock management with a depth-image-based, computer vision and machine learning framework for pig weight estimation, achieving an accuracy of 91.83%. The method offers a humane alternative to conventional practices, minimizing animal stress. Despite high accuracy, environmental factors can affect image quality and measurement precision. Future iterations of this project should explore deep learning techniques to enhance the model's complexity handling and enable real-time analysis, thus addressing current limitations and broadening the system's robustness and applicability in precision farming.
+            This study presents a breakthrough in livestock management with a depth-image-based, computer vision, and machine learning framework for pig weight estimation, achieving the highest accuracy of 92.13%. The method offers a humane alternative to conventional practices, minimizing animal stress. Despite high accuracy, environmental factors can affect image quality and measurement precision. Future iterations of this project should explore deep learning techniques to enhance the model's complexity handling and enable real-time analysis, thus addressing current limitations and broadening the system's robustness and applicability in precision farming.
 
         </p> <br>
         <h6>
